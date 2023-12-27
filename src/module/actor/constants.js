@@ -46,22 +46,22 @@ export const INITIAL_ACTOR_DATA = {
         value: 0
       },
       attackMod: {
-          value: 0
+        value: 0
       },
       blockMod: {
-          value: 0
+        value: 0
       },
       dodgeMod: {
-          value: 0
+        value: 0
       },
       magicProjectionMod: {
-          value: 0
+        value: 0
       },
       psychicProjectionMod: {
-          value: 0
+        value: 0
       },
       initiativeMod: {
-          value: 0
+        value: 0
       }
     },
     destinyPoints: {
@@ -773,6 +773,7 @@ export const INITIAL_ACTOR_DATA = {
           value: 0
         }
       },
+      /** @type {ABFItem[]} */
       via: []
     },
     zeon: {
@@ -781,7 +782,7 @@ export const INITIAL_ACTOR_DATA = {
       max: 0
     },
     zeonMaintained: {
-        value: 0
+      value: 0
     },
     zeonRegeneration: {
       base: {
@@ -800,6 +801,7 @@ export const INITIAL_ACTOR_DATA = {
           value: 0
         }
       },
+      /** @type {ABFItem[]} */
       via: []
     },
     magicProjection: {
@@ -905,11 +907,17 @@ export const INITIAL_ACTOR_DATA = {
         }
       }
     },
+    /** @type {ABFItem[]} */
     spells: [],
+    /** @type {ABFItem[]} */
     spellMaintenances: [],
+    /** @type {ABFItem[]} */
     selectedSpells: [],
+    /** @type {ABFItem[]} */
     summons: [],
+    /** @type {ABFItem[]} */
     metamagics: [],
+    /** @type {ABFItem[]} */
     preparedSpells: []
   },
 
@@ -1081,8 +1089,11 @@ export const INITIAL_ACTOR_DATA = {
     psychicSettings: {
       fatigueResistance: false
     },
+    /** @type {ABFItem[]} */
     psychicPowers: [],
+    /** @type {ABFItem[]} */
     psychicDisciplines: [],
+    /** @type {ABFItem[]} */
     mentalPatterns: [],
     innatePsychicPower: {
       amount: {
