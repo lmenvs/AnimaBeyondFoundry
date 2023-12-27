@@ -4,7 +4,8 @@ export enum ABFSettingsKeys {
   SEND_ROLL_MESSAGES_ON_COMBAT_BY_DEFAULT = 'SEND_ROLL_MESSAGES_ON_COMBAT_BY_DEFAULT',
   USE_DAMAGE_TABLE = 'USE_DAMAGE_TABLE',
   DEVELOP_MODE = 'DEVELOP_MODE',
-  AUTOMATE_COMBAT_DISTANCE = 'AUTOMATE_COMBAT_DISTANCE'
+  AUTOMATE_COMBAT_DISTANCE = 'AUTOMATE_COMBAT_DISTANCE',
+  SYSTEM_MIGRATION_VERSION = 'SYSTEM_MIGRATION_VERSION'
 }
 
 export const registerSettings = () => {
@@ -62,5 +63,13 @@ export const registerSettings = () => {
     config: true,
     default: false,
     type: Boolean
+  });
+
+  // This is for migration purposes, it stores the last migration version runned for the world.
+  typedGame.settings.register('animabf', ABFSettingsKeys.SYSTEM_MIGRATION_VERSION, {
+    config: false,
+    scope: 'world',
+    type: Number,
+    default: 0
   });
 };
