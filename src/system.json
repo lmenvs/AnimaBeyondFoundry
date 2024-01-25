@@ -46,6 +46,36 @@
       "name": "psychic",
       "label": "(ES) Mentalismo",
       "system": "animabf",
+      "path": "./packs/psychic_powers_es.db",
+      "type": "Item"
+    },
+    {
+        "name": "weapons-en",
+        "label": "(EN) Weapons",
+        "system": "animabf",
+        "path": "./packs/weapons_en.db",
+        "type": "Item"
+    },
+    {
+      "name": "armors-en",
+      "label": "(EN) Armors",
+      "system": "animabf",
+      "path": "./packs/armors_en.db",
+      "type": "Item"
+    },
+    {
+      "name": "magic-en",
+      "label": "(EN) MAGIC",
+      "system": "animabf",
+      "path": "./packs/magic_en.db",
+      "type": "Item"
+    },
+    {
+      "name": "psychic-en",
+      "label": "(EN) Psychic",
+      "system": "animabf",
+      "path": "./packs/psychic_powers_en.db",
+      "type": "Item"
       "path": "./packs/psychic_powers",
       "type": "Item",
       "private": false,
