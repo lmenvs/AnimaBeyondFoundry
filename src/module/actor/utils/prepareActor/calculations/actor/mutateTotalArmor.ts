@@ -1,14 +1,15 @@
 import { ABFActorDataSourceData } from '../../../../../types/Actor';
-import { ArmorDataSource, ArmorLocation } from '../../../../../types/combat/ArmorItemConfig';
+import { ArmorLocation } from '../../../../../types/combat/ArmorItemConfig';
+import { ArmorDataSource } from '../../../../../types/Items';
 
 const calculateTA = (tas: number[]): number => {
   if (tas.length === 0) return 0;
 
-  const orderedTas = [...tas].sort().reverse();
+  const orderedTas = new Int8Array([...tas]).sort().reverse();
 
-  const maxTa = orderedTas.shift();
+  const maxTa = orderedTas[0];
 
-  const sumOtherTas = orderedTas.reduce((prev, curr) => prev + curr, 0);
+  const sumOtherTas = orderedTas.slice(1).reduce((prev, curr) => prev + curr, 0);
 
   return maxTa! + Math.floor(sumOtherTas / 2);
 };
@@ -27,17 +28,17 @@ export const mutateTotalArmor = (data: ABFActorDataSourceData) => {
   };
 
   const equippedArmors = (data.combat.armors as ArmorDataSource[]).filter(
-    armor => armor.data.equipped.value && armor.data.localization.value !== ArmorLocation.HEAD
+    armor => armor.system.equipped.value && armor.system.localization.value !== ArmorLocation.HEAD
   );
 
   if (equippedArmors.length > 0) {
-    totalArmor.at.cold.value = calculateTA(equippedArmors.map(armor => armor.data.cold.final.value));
-    totalArmor.at.cut.value = calculateTA(equippedArmors.map(armor => armor.data.cut.final.value));
-    totalArmor.at.electricity.value = calculateTA(equippedArmors.map(armor => armor.data.electricity.final.value));
-    totalArmor.at.energy.value = calculateTA(equippedArmors.map(armor => armor.data.energy.final.value));
-    totalArmor.at.heat.value = calculateTA(equippedArmors.map(armor => armor.data.heat.final.value));
-    totalArmor.at.impact.value = calculateTA(equippedArmors.map(armor => armor.data.impact.final.value));
-    totalArmor.at.thrust.value = calculateTA(equippedArmors.map(armor => armor.data.thrust.final.value));
+    totalArmor.at.cold.value = calculateTA(equippedArmors.map(armor => armor.system.cold.final.value));
+    totalArmor.at.cut.value = calculateTA(equippedArmors.map(armor => armor.system.cut.final.value));
+    totalArmor.at.electricity.value = calculateTA(equippedArmors.map(armor => armor.system.electricity.final.value));
+    totalArmor.at.energy.value = calculateTA(equippedArmors.map(armor => armor.system.energy.final.value));
+    totalArmor.at.heat.value = calculateTA(equippedArmors.map(armor => armor.system.heat.final.value));
+    totalArmor.at.impact.value = calculateTA(equippedArmors.map(armor => armor.system.impact.final.value));
+    totalArmor.at.thrust.value = calculateTA(equippedArmors.map(armor => armor.system.thrust.final.value));
   }
 
   data.combat.totalArmor = totalArmor;
